@@ -50,7 +50,7 @@ The application consists of 5 microservices:
 Pulling the repo:
 ```bash
 git clone https://github.com/Mkrummz/mtl_demo.git
-cd mtl_demo_gl
+cd mtl_demo
 ```
 Starting the application:
 ```bash
