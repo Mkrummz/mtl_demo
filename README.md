@@ -46,7 +46,7 @@ The application consists of 5 microservices:
     - The producer- sends the content of the shopping cart as JSON to a Kafka topic
     - The consumer- logs the message
 
-## Part 0: Useful Information to Know
+## Part 0: Useful Commands to Know
 Pulling the repo:
 ```bash
 git clone https://github.com/Mkrummz/mtl_demo.git
