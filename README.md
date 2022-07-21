@@ -73,6 +73,12 @@ Restarting the Grafana Agent:
 docker-compose restart agent
 ```
 
+Stop Docker Containers
+```bash
+docker-compose stop
+docker-compose rm -f
+```
+
 Website URL: http://localhost:3389/shop?name=User
 
 
