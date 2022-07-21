@@ -156,9 +156,9 @@ To set this up:
 2. click on synthetic monitoring on the left hand side (world icon)
 3. click on **Checks** in the naviagation bar
 4. click add new check
-5. Set **Check type** to **HTTP**, give the **Job a Name**, Put http://grafanalive.krummysolutions.com:3389/shop?name=User as the **target**, select any **probe locations** you'd like (I'd recommend doing >3), and select **Save**
-   - For a more interesting probe set up another one with http://grafanalive.krummysolutions.com:3389/cart?name=Jim&checkout=true
-   - If you want to do a traceroute use grafanalive.krummysolutions.com
+5. Set **Check type** to **HTTP**, give the **Job a Name**, Put http://grafanalivedemo.com:3389/shop?name=User as the **target**, select any **probe locations** you'd like (I'd recommend doing >3), and select **Save**
+   - For a more interesting probe set up another one with http://grafanalivedemo.com:3389/cart?name=Jim&checkout=true
+   - If you want to do a traceroute use grafanalivedemo.com
 6. Then click **View Dashboard** (I'd recommend having one running already and after walking through the setup steps opening that one so its populated with data)
 
 
