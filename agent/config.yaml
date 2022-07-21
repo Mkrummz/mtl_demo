@@ -2,14 +2,6 @@ server:
   log_level: debug
 
 integrations:
-  cadvisor:
-    docker_only: true
-    enabled: true
-    instance: localhost:9090
-    relabel_configs:
-      - action: replace
-        replacement: integrations/docker
-        target_label: job
   node_exporter:
     enabled: true
     relabel_configs:
