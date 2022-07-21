@@ -1,0 +1,63 @@
+server:
+  log_level: debug
+
+integrations:
+  cadvisor:
+    docker_only: true
+    enabled: true
+    instance: localhost:9090
+    relabel_configs:
+      - action: replace
+        replacement: integrations/docker
+        target_label: job
+  node_exporter:
+    enabled: true
+    relabel_configs:
+      - replacement: hostname
+        target_label: instance
+  prometheus_remote_write:
+    - basic_auth:
+        password: <password>
+        username: <username>
+      url: <url>
+
+logs:
+  configs:
+  - name: loki
+    clients:
+      - url: <url>
+        external_labels:
+          job: agent
+  positions_directory: /tmp/positions
+
+traces:
+  configs:
+  - name: latencyEndpoint
+    receivers:
+      otlp:
+        protocols:
+          grpc:
+          http:
+    remote_write:
+      - endpoint: <url>
+        basic_auth:
+          username: <username>
+          password: <password>
+    spanmetrics:
+      dimensions:
+        - name: http.method
+        - name: http.target
+        - name: team.name
+      handler_endpoint: 0.0.0.0:1234
+    automatic_logging:
+      backend: logs_instance
+      logs_instance_name: loki
+      roots: true
+      processes: true
+      spans: true
+      span_attributes:
+        - http.method
+        - http.target
+        - http.status_code
+      overrides:
+        trace_id_key: "traceId"
