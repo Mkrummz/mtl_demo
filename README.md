@@ -75,8 +75,7 @@ docker-compose restart agent
 
 Stop Docker Containers
 ```bash
-docker-compose stop
-docker-compose rm -f
+docker-compose down
 ```
 
 Website URL: http://localhost:3389/shop?name=User
