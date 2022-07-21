@@ -49,7 +49,7 @@ The application consists of 5 microservices:
 ## Part 0: Useful Information to Know
 Pulling the repo:
 ```bash
-git clone https://github.com/Mkrummz/mtl_demo_gl.git
+git clone https://github.com/Mkrummz/mtl_demo.git
 cd mtl_demo_gl
 ```
 Starting the application:
