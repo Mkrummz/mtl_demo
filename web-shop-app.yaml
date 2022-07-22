@@ -229,7 +229,7 @@ spec:
       containers:
         - env:
             - name: OTEL_EXPORTER_OTLP_ENDPOINT
-              value: http://agent:4317
+              value: http://grafana-agent-traces.default:4317
             - name: SQLALCHEMY_DATABASE_URI
               value: mariadb+mariadbconnector://root:myrootpassword@mariadb:3306/webshop
           image: condla/shopping-cart:1.1
@@ -289,7 +289,7 @@ spec:
             - name: OTEL_EXPORTER
               value: otlp_span
             - name: OTEL_EXPORTER_OTLP_ENDPOINT
-              value: http://agent:4317
+              value: http://grafana-agent-traces.default:4317
             - name: OTEL_METRICS_EXPORTER
               value: none
             - name: OTEL_RESOURCE_ATTRIBUTES
@@ -341,7 +341,7 @@ spec:
       containers:
         - env:
             - name: OTEL_EXPORTER_OTLP_ENDPOINT
-              value: http://agent:4317
+              value: http://grafana-agent-traces.default:4317
           image: condla/web-shop:1.1
           name: web-shop
           ports:
