@@ -147,7 +147,7 @@ Logs follow the same pattern.
 To implement this we will go to Grafana Cloud and open up the integrations section and search for Kubernetes. Then we will follow the guide to set it up.
 
 
-## Part 3: Instrumentation and Collection of Trace Data
+## Part 2: Instrumentation and Collection of Trace Data
 Traces subsystem allows you to collect spans to send to Grafana Tempo. Grafana Agent collects traces and forwards them to Tempo using its traces subsystem. This is done using the upstream [OpenTelemetry Collector](https://github.com/open-telemetry/opentelemetry-collector). Grafana Agent can ingest OpenTelemetry, OpenCensus, Jaeger, Zipkin, or Kafka spans. 
 
 ```yml
