@@ -343,7 +343,7 @@ Navigation Dashboard
 1. Delete the probs you created in Synthetic Monitoring
 2. To delete your GKE cluster run:
     ```bash
-    gcloud container clusters delete ${clustername} --region=${region}
+    gcloud container clusters delete ${clustername} --zone=${zone}
     ```
 
 ## Acknowledgements
