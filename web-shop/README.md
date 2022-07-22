@@ -50,6 +50,7 @@ Once it is open you will run the following commands to pull the repo from GitHub
 
 ```bash
 git clone https://github.com/Mkrummz/mtl_demo.git
+git pull origin kubernetes
 cd mtl_demo
 ```
 Set the Env Variables
