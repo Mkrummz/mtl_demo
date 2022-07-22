@@ -63,7 +63,12 @@ services:
       - "4317:4317"
       - "1234:1234"
     volumes:
-      - "${PWD}/agent/config.yaml:/etc/agent/agent.yaml"
+      - ./config:/etc/config
+      - /var/log:/var/log
+    entrypoint:
+      - /bin/agent
+      - -config.file=/etc/config/agent.yaml
+      - -prometheus.wal-directory=/tmp/agent/wal
     networks:
       - web-shop
 
