@@ -340,10 +340,11 @@ To set this up:
 
 From there you can do so much: 
 - https://play.grafana.org/d/T512JVH7z/loki-nginx-service-mesh-json-version?orgId=1 - all the stuff you can do with just logs 
+- https://se-demo.grafana.net/d/Oc_5E1snz/web-app-observability-mk?orgId=1 - templatized data across web apps or even deployments
+- https://sedemo.grafana.net/d/lB_AxvX7k/k6-integration-dashboard-mk?orgId=1&from=1651574259000&to=1651574667000 - data about your load testing
+- https://se-demo.grafana.net/d/RP60OMfZf/servicenow-incidents?orgId=1 - tie in data from your ticketing system 
 - https://se-demo.grafana.net/d/0qrJzvL7z/0-ddr-elk-metrics-logs-tracces?orgId=1 - big tent philosphy 
 - https://sedemo.grafana.net/d/8BuVGzTMk/k8s-slos-with-error-budget?orgId=1&var-datasource=grafanacloud-sedemo-prom&var-cluster=&var-- instance=All&from=now-3h&to=now - use tools such as sloth slo
-- https://se-demo.grafana.net/d/RP60OMfZf/servicenow-incidents?orgId=1 - tie in data from your ticketing system 
-- https://sedemo.grafana.net/d/lB_AxvX7k/k6-integration-dashboard-mk?orgId=1&from=1651574259000&to=1651574667000 - data about your load testing
 - https://se-demo.grafana.net/d/KZI2_9s7k/devops-scorecard?orgId=1 - devops score cards, send them out as pdfs in weekly reports
 - https://se-demo.grafana.net/d/L-XLdvY7k/0-ddr-ml?orgId=1 - ml
 
