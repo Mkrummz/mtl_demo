@@ -7,7 +7,7 @@ This workshop will walk you through how to collect and visualize metrics, logs a
 ## Prerequisites
 [Sign up for our free Grafana Cloud Account](https://grafana.com/)
 
-[GCP Cloud](https://cloud.google.com)
+[GCP Cloud Account](https://cloud.google.com)
 
 Optional: Download a Text Editor (ex: [Visual Studio Code](https://code.visualstudio.com/download))
 
