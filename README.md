@@ -101,7 +101,7 @@ kubectl get nodes
 
 #input it in here
 #example kubectl port-forward -n ${namespace} products-7cf9db6b6-splt5 8080:8080
-kubectl port-forward -n ${namespace} <pod_name> 8080:8080
+kubectl port-forward -n ${namespace} <_pod_name_> 8080:8080
 ```
 
 While that is running open a new terminal and run the curl commands to populate the store front
@@ -122,7 +122,7 @@ Next grab the website URL
 ```bash
 kubectl get -n ${namespace} service web-shop
 ```
-Naviagate to the URL: http://<hostname or public ip>:3389/shop?name=User
+Naviagate to the URL: http://<_hostname or public ip_>:3389/shop?name=User
 
 Congrats you have completed the workshop setup steps!
 
