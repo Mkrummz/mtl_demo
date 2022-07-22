@@ -76,6 +76,10 @@ deletedate=07-29-2022
 Spin up a GKE cluster
 ```bash
 gcloud container clusters create --zone ${zone} ${clustername} --labels owner=${owner},lifetime=${deletedate}
+```
+
+Get Cluster Credentials
+```bash
 gcloud container clusters get-credentials ${clustername}
 ```
 
