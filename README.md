@@ -312,7 +312,12 @@ We got these values from: line 29 of shopping-cart/wsgi.py and line 29 of web-sh
 ![Alt text](images/shopping-cart_traces.png)
 
 ## Go to Explore 
-Type in xyz queries to make sure everything is working as expected
+CPU Usage by Service
+sum(node_namespace_pod_container:container_cpu_usage_seconds_total:sum_irate{cluster="cloud", namespace="web-shop-app"} * on(namespace,pod)   group_left(workload, workload_type) namespace_workload_pod:kube_pod_owner:relabel{cluster="cloud", namespace="web-shop-app"} ) by (workload, workload_type)
+
+then you can add it to a dashboard
+
+then click the panel and show some of the options for customization such as changing the legend 
 
 ## Adding Additional Dashboards
 
@@ -333,9 +338,15 @@ To set this up:
 
 ### Import Additional Example Dashboard in the Dashboard Folder
 
-SLO - Dashboard
+From there you can do so much: 
+https://play.grafana.org/d/T512JVH7z/loki-nginx-service-mesh-json-version?orgId=1 - all the stuff you can do with just logs 
+https://se-demo.grafana.net/d/0qrJzvL7z/0-ddr-elk-metrics-logs-tracces?orgId=1 - big tent philosphy 
+https://se-demo.grafana.net/d/vd7s5yfnz/0-ddr-k8s-slos-with-error-budget-copy?orgId=1&from=1619566124000&to=1620142162616 - use tools such as sloth slo
+https://se-demo.grafana.net/d/RP60OMfZf/servicenow-incidents?orgId=1 - tie in data from your ticketing system 
+https://sedemo.grafana.net/d/lB_AxvX7k/k6-integration-dashboard-mk?orgId=1&from=1651574259000&to=1651574667000 - can even include data about your load testing
+https://se-demo.grafana.net/d/L-XLdvY7k/0-ddr-ml?orgId=1 - ml
 
-General Observ Dashboard
+all of this in one place as your first pane of glass
 
 Navigation Dashboard
 
