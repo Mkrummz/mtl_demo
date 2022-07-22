@@ -125,7 +125,7 @@ Naviagate to the URL: http://<_hostname or public ip_>:3389/shop?name=User
 
 Congrats you have completed the workshop setup steps!
 
-## Part 1: Instrumentation and Collection of Metrics Data
+## Part 1: Instrumentation and Collection of Metrics Data and Logs
 You will start off by instrumenting our application. Using the architecture diagram from above you will leverage the cloud integration and connections to quickly orchestrate the collection of the telemetry data.
 
 Once instrumented, you will be sending this telegemery data to [Grafana Cloud](https://grafana.com/products/cloud/?pg=blog&plcmt=body-txt) (fully-managed composable observability platform) via the Grafana Agent (all-in-one agent for collecting metrics, logs, and traces).
@@ -142,23 +142,12 @@ You still have full control over how the exporter is configured in the agent con
 
 The metrics_config block is used to define a collection of metrics instances. Each instance defines a collection of Prometheus-compatible scrape_configs and remote_write rules.
 
-```yml
-Metrics:
- wal_directory: '/var/lib/grafana-agent'
- global:
-   scrape_interval: 15s
-   remote_write:
-     - url: <Prometheus compatible remote write's API>
-       basic_auth:
-         username: <user name or instance ID if using Grafana Cloud>
-         password: <password or API Key if using Grafana Cloud>
-```
+Logs follow the same pattern.
 
-## Part 2: Instrumentation and Collection of Logs Data
+To implement this we will go to Grafana Cloud and open up the integrations section and search for Kubernetes. Then we will follow the guide to set it up.
 
 
-
-## Part 3: Instrumentation and Collection of Log Data
+## Part 3: Instrumentation and Collection of Trace Data
 Traces subsystem allows you to collect spans to send to Grafana Tempo. Grafana Agent collects traces and forwards them to Tempo using its traces subsystem. This is done using the upstream [OpenTelemetry Collector](https://github.com/open-telemetry/opentelemetry-collector). Grafana Agent can ingest OpenTelemetry, OpenCensus, Jaeger, Zipkin, or Kafka spans. 
 
 ```yml
