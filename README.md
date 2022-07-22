@@ -96,7 +96,7 @@ kubectl get deployments --all-namespaces
 If yes, the set up a port-forwarder for the products container
 ```bash
 #get container name, choose one that start with productsXXXX
-kubectl get nodes
+kubectl get pod -n ${namespace}
 
 #input it in here
 #example kubectl port-forward -n ${namespace} products-7cf9db6b6-splt5 8080:8080
