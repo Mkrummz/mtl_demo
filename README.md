@@ -37,10 +37,7 @@ The application consists of 5 microservices:
     - The consumer- logs the message
 
 ## Part 0: Setup Prior to Workshop
-We will be using [Cloud Shell](https://cloud.google.com/shell) to run this workshop. Cloud Shell is a GCP offering and allows you to manage your cloud resources via terminal. As well it comes preloaded with the utilites we will be using today: 
-- kubectl
-- curl
-- envsubst
+We will be using [Cloud Shell](https://cloud.google.com/shell) to run this workshop. Cloud Shell is a GCP offering and allows you to manage your cloud resources via terminal. As well it comes preloaded with the utilites you will be using today: kubectl, curl, and envsubst
 
 ### Setting up your IDE 
 
