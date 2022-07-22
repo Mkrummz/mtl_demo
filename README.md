@@ -88,7 +88,7 @@ Deploy App
 kubectl apply -f web-shop-app.yaml
 ```
 
-Check to see if all containers are all in the running state
+Check to see if all containers are all in the ready state
 ```bash
 kubectl get deployments --all-namespaces
 ```
