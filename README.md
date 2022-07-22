@@ -89,7 +89,7 @@ kubectl apply -f web-shop-app.yaml
 
 Check to see if all containers are all in the running state
 ```bash
-
+kubectl get deployments --all-namespaces
 ```
 
 If yes, the set up a port-forwarder for the products container
