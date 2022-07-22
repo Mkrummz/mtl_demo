@@ -45,7 +45,7 @@ You will start off by opening up Cloud Shell. This can take a minute depending o
 
 Once it is open you will run the following commands to pull the repo from GitHub:
 
-keep in mind Ctrl + v does not work in cloud shell. You must use Ctrl + Shift + v or right click -> paste
+***Ctrl + v does not work in cloud shell. You must use Ctrl + Shift + v or right click -> paste
 ```bash
 git clone https://github.com/Mkrummz/mtl_demo.git
 cd mtl_demo
