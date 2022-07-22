@@ -80,7 +80,7 @@ gcloud container clusters create --zone ${zone} ${clustername} --labels owner=${
 
 Get Cluster Credentials
 ```bash
-gcloud container clusters get-credentials ${clustername}
+gcloud container clusters get-credentials ${clustername} --zone ${zone}
 ```
 
 Deploy App
