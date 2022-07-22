@@ -349,6 +349,13 @@ General Observ Dashboard
 
 Navigation Dashboard
 
+## Spin Down the Env
+1. Delete the probs you created in Synthetic Monitoring
+2. To delete your GKE cluster run:
+    ```bash
+    gcloud container clusters delete ${clustername} --region=${region}
+    ```
+
 ## Acknowledgements
 
 [Web Shop Observability](https://github.com/Condla/web-shop-o11y-demo) was created by Stefan Dunkler
