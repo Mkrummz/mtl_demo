@@ -54,24 +54,22 @@ cd mtl_demo
 ```
 Set the Env Variables
 
-Select the [geographic deployment location](https://cloud.google.com/compute/docs/regions-zones) (ex: europe-north1-a, us-central1-a)
 ```bash
+#select the geographic deployment location
+#https://cloud.google.com/compute/docs/regions-zones (ex: europe-north1-a, us-central1-a)
 zone=us-central1-c
-```
 
-Give the cluster a name
-```bash
+#give the cluster a name
 clustername=web-shop-app
-```
 
-Define the Container Namespace. **DO NOT MODIFY unless you also modify web-shop-app.yaml**
-```bash
+#define the Container Namespace.
+#DO NOT MODIFY unless you also modify web-shop-app.yaml
 namespace=web-shop-app
-```
 
-Input your first name (or initals) and the date you expect to delete the cluster on (internal policy)
-```bash
+#input your first name (or initals)
 owner=mmk
+
+#the date you expect to delete the cluster by
 deletedate=07-29-2022
 ```
 
