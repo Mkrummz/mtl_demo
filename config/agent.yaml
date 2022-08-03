@@ -15,20 +15,104 @@ integrations:
     relabel_configs:
       - replacement: hostname
         target_label: instance
+  mysqld_exporter:
+    data_source_name: root@(localhost:3306)/
+    enabled: true
+    instance: mysql-01
+    relabel_configs:
+      - replacement: integrations/mysql
+        source_labels:
+          - __address__
+        target_label: job
   prometheus_remote_write:
     - basic_auth:
         password: <password>
         username: <username>
       url: <url>
 
+metrics:
+  configs:
+    - name: integrations
+      remote_write:
+        - basic_auth:
+            password: <password>
+            username: <username>
+          url: <url>
+  global:
+    scrape_interval: 60s
+  wal_directory: /tmp/grafana-agent-wal
+
 logs:
   configs:
-  - name: loki
-    clients:
-      - url: <url>
-        external_labels:
-          job: agent
-  positions_directory: /tmp/positions
+    - clients:
+        - basic_auth:
+            password: <password>
+            username: <username>
+          url: <url>
+      name: integrations
+      positions:
+        filename: /tmp/positions.yaml
+      scrape_configs:
+        - job_name: integrations/mysql
+          pipeline_stages:
+            - regex:
+                expression: (?P<timestamp>.+) (?P<thread>[\d]+) \[(?P<label>.+?)\](
+                  \[(?P<err_code>.+?)\] \[(?P<subsystem>.+?)\])? (?P<msg>.+)
+            - labels:
+                ? err_code
+                ? label
+                ? subsystem
+            - drop:
+                drop_counter_reason: drop empty lines
+                expression: ^ *$
+          static_configs:
+            - labels:
+                __path__: /var/log/mysql/*.log
+                instance: mysql-01
+                job: integrations/mysql
+        - docker_sd_configs:
+            - host: unix:///var/run/docker.sock
+              refresh_interval: 5s
+          job_name: integrations/docker
+          relabel_configs:
+            - action: replace
+              replacement: integrations/docker
+              source_labels:
+                - __meta_docker_container_id
+              target_label: job
+            - action: replace
+              replacement: localhost:9090
+              source_labels:
+                - __meta_docker_container_id
+              target_label: instance
+            - regex: /(.*)
+              source_labels:
+                - __meta_docker_container_name
+              target_label: container
+            - source_labels:
+                - __meta_docker_container_log_stream
+              target_label: stream
+        - job_name: integrations/node_exporter_journal_scrape
+          journal:
+            labels:
+              instance: hostname
+              job: integrations/node_exporter
+            max_age: 24h
+          relabel_configs:
+            - source_labels:
+                - __journal__systemd_unit
+              target_label: unit
+            - source_labels:
+                - __journal__boot_id
+              target_label: boot_id
+            - source_labels:
+                - __journal__transport
+              target_label: transport
+            - source_labels:
+                - __journal_priority_keyword
+              target_label: level
+      target_config:
+        sync_period: 10s
 
 traces:
   configs:
